@@ -1,8 +1,5 @@
 #!/bin/bash
 source cu_params
-#cloning conf files
-mkdir ~/openairinterface5g/ci-scripts/conf_files/cu
-cp ~/openairinterface5g/ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf ~/openairinterface5g/ci-scripts/conf_files/cu
 PREFIX='~/openairinterface5g/ci-scripts/conf_files/cu/rcc.band7.tm1.nfapi.conf'
 
 #================ Configuring MACRLC ==================
