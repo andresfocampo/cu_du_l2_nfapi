@@ -19,10 +19,10 @@ do
     sleep 1    
     if [ ! -z "$lxc_ip" ]
     then  
-        echo 'local_s_address='$lxc_ip'' | tee -a $PREFIX_LOCAL/cu_params       
+        echo 'local_s_address='$lxc_ip'' | tee -a $PREFIX_LOCAL'/cu_params'
         break            
     fi
-    lxc_ip=$(lxc-info -n $lxc_name --ip | cut -d ":" -f2)    
+    lxc_ip=$(sudo -s lxc-info -n $lxc_name --ip | cut -d ":" -f2)  
     i=$[$i+1]
 done
 
