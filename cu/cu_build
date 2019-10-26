@@ -3,6 +3,9 @@
 #================== Building OAI ======================
 #Getting source code
 git clone https://andresocp@gitlab.eurecom.fr/oai/openairinterface5g.git
+#cloning conf files
+mkdir ~/openairinterface5g/ci-scripts/conf_files/cu
+cp ~/openairinterface5g/ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf ~/openairinterface5g/ci-scripts/conf_files/cu
 
 cd ~/openairinterface5g/
 #Checking out last version of master branch
