@@ -3,6 +3,10 @@
 #Getting source code
 git clone https://andresocp@gitlab.eurecom.fr/oai/openairinterface5g.git
 
+#cloning conf files
+mkdir ~/openairinterface5g/ci-scripts/conf_files/du
+cp ~/openairinterface5g/ci-scripts/conf_files/ue.nfapi.conf ~/openairinterface5g/ci-scripts/conf_files/du
+
 cd ~/openairinterface5g/
 #Checking out last version of master branch
 git checkout -f v1.1.0
