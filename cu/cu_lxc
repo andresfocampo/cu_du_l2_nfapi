@@ -30,5 +30,5 @@ if [ -z "$lxc_ip" ]
 then    
     echo 'ERROR: No assigned IP to container '$lxc_name''            
 fi
-cp $PREFIX_LOCAL $PREFIX_HOME
+sudo -s cp $PREFIX_LOCAL $PREFIX_HOME
 sudo -s lxc-attach -n $lxc_name -- passwd ubuntu
