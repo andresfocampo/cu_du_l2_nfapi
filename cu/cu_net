@@ -1,0 +1,9 @@
+#!/bin/bash
+source cu_param
+
+#=================== Networking ======================
+#virtual interfaces
+sudo ifconfig $enb_if_s1c $enb_ip_s1c up
+sudo ifconfig $enb_if_s1u $enb_ip_s1u up
+sudo ifconfig $enb_if_x2c $enb_ip_x2c up
+

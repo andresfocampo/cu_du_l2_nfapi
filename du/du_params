@@ -1,0 +1,7 @@
+#!/bin/bash
+host_if_name=
+host_ip_address=
+local_n_if_name=eth0
+remote_n_address=
+
+

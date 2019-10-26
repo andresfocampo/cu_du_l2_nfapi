@@ -1,0 +1,34 @@
+#!/bin/bash
+
+source cu_params
+lxc_name=CU_2
+PREFIX_LOCAL=$HOME'/cu_du_l2_nfapi/cu'
+PREFIX_FS='/var/lib/lxc/'$lxc_name'/rootfs/'
+PREFIX_HOME='/var/lib/lxc/'$lxc_name'/rootfs/home/ubuntu'
+
+sudo ip route add $mme_ip via $host_ip_address dev $host_if_name #adding route to S1C interface
+sudo ip route add $spgw_ip via $host_ip_address dev $host_if_name #adding route to S1U interface
+
+sudo lxc-create -t download -n $lxc_name -- -d ubuntu -r bionic -a amd64
+sudo lxc-start -n $lxc_name -d
+
+lxc_ip=$(sudo -s lxc-info -n $lxc_name --ip | cut -d ":" -f2)
+i="0"
+while [ $i -lt 20 ] 
+do
+    sleep 1    
+    if [ ! -z "$lxc_ip" ]
+    then  
+        echo 'local_s_address='$lxc_ip'' | tee -a $PREFIX_LOCAL/cu_params       
+        break            
+    fi
+    lxc_ip=$(lxc-info -n $lxc_name --ip | cut -d ":" -f2)    
+    i=$[$i+1]
+done
+
+if [ -z "$lxc_ip" ]
+then    
+    echo 'ERROR: No assigned IP to container '$lxc_name''            
+fi
+cp $PREFIX_LOCAL $PREFIX_HOME
+sudo -s lxc-attach -n $lxc_name -- passwd ubuntu

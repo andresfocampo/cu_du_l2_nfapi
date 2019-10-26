@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#================== Building OAI ======================
+#Getting source code
+git clone https://andresocp@gitlab.eurecom.fr/oai/openairinterface5g.git
+
+cd ~/openairinterface5g/
+#Checking out last version of master branch
+git checkout -f v1.1.0
+#Installing dependencies
+./cmake_targets/build_oai -I
+#building the code
+./cmake_targets/build_oai --eNB
+
+
+
+
+
+
+
+

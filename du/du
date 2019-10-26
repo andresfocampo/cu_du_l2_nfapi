@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#============= Installing dependencies ================
+echo ubuntu | sudo apt -y update 
+sudo apt -y upgrade
+sudo apt -y install git subversion cmake nano wget net-tools
+#======================================================
+
+#=========== Installing kernel modules ================
+sudo apt -y install linux-headers-$(uname -r)
+#======================================================
+
+#======================== UE ==========================
+cp  ue openair3/NAS/TOOLS/ue_eurecom_test_sfr.conf
+#======================================================
+
+#================= Configuring OAI ====================
+source du_conf
+#======================================================
+
+#================== Building OAI ======================
+source du_build
+#======================================================
+
+#============ Initialize the NAS UE Layer =============
+cd ~/openairinterface5g/cmake_targets/tools
+source init_nas_s1 UE
+#======================================================
+
+
