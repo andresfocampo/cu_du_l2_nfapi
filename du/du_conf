@@ -1,8 +1,5 @@
 #!/bin/bash
 source du_params
-#cloning conf files
-mkdir ~/openairinterface5g/ci-scripts/conf_files/du
-cp ~/openairinterface5g/ci-scripts/conf_files/ue.nfapi.conf ~/openairinterface5g/ci-scripts/conf_files/du
 PREFIX='~/openairinterface5g/ci-scripts/conf_files/du/ue.nfapi.conf'
 
 #================ Configuring L1 ==================
